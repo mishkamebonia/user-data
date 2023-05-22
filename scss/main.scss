@@ -1,0 +1,86 @@
+@import './variables';
+@import './components';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+html, body {
+  scroll-behavior: smooth;
+}
+
+body {
+  max-width: 1000px;
+  margin: 30px auto;
+  background: $bgColor;
+}
+
+button {
+  cursor: pointer;
+}
+
+.search-box {
+  margin: 10px 10px 30px;
+  display: flex;
+  align-items: stretch;
+  gap: 20px;
+
+  .search-bar {
+    display: block;
+    position: relative;
+    width: 100%;
+    
+    .search {
+      @include searchBoxForm;
+      width: 100%;
+      height: 40px;
+      padding: 25px 30px 27px;
+      color: $darkBlue;
+      background: #fff;
+
+      transition: .6s ease background;
+
+      &::placeholder {
+        color: $darkBlue;
+      }
+    }
+
+    #clean-search-btn {
+      background: transparent;
+      border: 0;
+      outline: 0;
+    
+      position: absolute;
+      top: calc((100% - 18px) / 2);
+      right: 33px;
+    
+      transform: translate(40px, 0);
+      opacity: 0;
+      visibility: hidden;
+      transition: .4s ease opacity, .4s ease transform;
+
+      i {
+        display: block;
+        font-size: 18px;
+        color: $darkBlue;
+        transition: color .2s ease;
+
+        &:hover {
+          color: #E06469;
+        }
+      }
+    }
+  }
+
+  #search-button {
+    flex: 1 1 20%;
+    padding-bottom: 2px;
+    @include searchBoxForm;
+    background: $darkBlue;
+    color: #fff;
+    font-weight: 700;
+  }
+}

@@ -1,0 +1,17 @@
+$bgColor: #F6F1F1;
+
+$darkBlue: #146C94;
+
+@mixin searchBoxForm {
+  font-size: 18px;
+
+  border-radius: 50px;
+  outline: none;
+  border: 1px solid $darkBlue;
+  box-shadow: rgba(0, 0, 0, 0.1) -4px 9px 25px -6px;
+}
+
+.active-button {
+  background: $darkBlue !important;
+  color: #fff !important;
+}
