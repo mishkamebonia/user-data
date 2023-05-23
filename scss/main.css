@@ -1,6 +1,29 @@
 .active-button {
   background: #146C94 !important;
   color: #fff !important;
+  transition: all 0.2s ease;
+}
+
+.shake {
+  animation: shake 0.5s;
+  animation-iteration-count: 1;
+}
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(5px);
+  }
+  50% {
+    transform: translateX(-5px);
+  }
+  75% {
+    transform: translateX(5px);
+  }
+  100% {
+    transform: translateX(0);
+  }
 }
 
 #wrapper {
@@ -14,6 +37,10 @@
   background: #fff;
   margin: 10px;
   padding: 10px;
+  transition: all 0.2s ease;
+}
+.card:hover {
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 .card .card-content h6 {
   text-align: right;
@@ -54,21 +81,42 @@
   background: #fff;
   color: #146C94;
   box-shadow: rgba(0, 0, 0, 0.1) -4px 9px 25px -6px;
+  transition: all 0.2s ease;
+}
+#pagitation-buttons .pagitaion-btn:hover {
+  background: rgba(175, 211, 226, 0.3);
 }
 
-.counter {
+.options {
   display: flex;
   align-items: center;
+  gap: 10px;
   margin: 0 10px 20px;
 }
-.counter p {
+.options .counter {
+  order: 2;
+}
+.options .counter p {
   font-size: 14px;
   padding: 5px 15px;
   border-radius: 50px;
   color: #146C94;
   background: #AFD3E2;
 }
-.counter p span {
+.options .counter p span {
+  font-weight: 700;
+}
+.options .page-display {
+  order: 1;
+}
+.options .page-display p {
+  font-size: 14px;
+  padding: 5px 15px;
+  border-radius: 50px;
+  color: #146C94;
+  background: #AFD3E2;
+}
+.options .page-display p span {
   font-weight: 700;
 }
 
@@ -174,4 +222,8 @@ button {
   background: #146C94;
   color: #fff;
   font-weight: 700;
+  transition: all 0.2s ease;
+}
+.search-box #search-button:hover {
+  background: rgba(20, 108, 148, 0.85);
 }/*# sourceMappingURL=main.css.map */

@@ -13,15 +13,20 @@
   <main>
     <div class="search-box">
       <div class="search-bar">
-        <input type="text" class="search" id="search" placeholder="text in here">
+        <input type="search" class="search" id="search" placeholder="text in here">
         <button id="clean-search-btn" style="display: none;">
           <i class="fa-solid fa-xmark"></i>
         </button>
       </div>
       <button id="search-button">search</button>
     </div>
-    <div class="counter" id="counter">
-      <p><span id="data-counter"></span> results found in <span id="data-counter-time"></span>ms</p>
+    <div class="options">
+      <div class="counter" id="counter">
+        <p><span id="data-counter"></span> results found in <span id="data-counter-time"></span>ms</p>
+      </div>
+      <div class="page-display">
+        <p>page <span id="current-page">error</span></p>
+      </div>
     </div>
     <div id="wrapper"></div>
     <div id="pagitation-buttons"></div>

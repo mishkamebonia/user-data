@@ -2,6 +2,9 @@ $bgColor: #F6F1F1;
 
 $darkBlue: #146C94;
 
+$btnHover: rgba(20, 108, 148, 0.85);
+$btnTransition: all .2s ease;
+
 @mixin searchBoxForm {
   font-size: 18px;
 
@@ -11,7 +14,37 @@ $darkBlue: #146C94;
   box-shadow: rgba(0, 0, 0, 0.1) -4px 9px 25px -6px;
 }
 
+@mixin tag {
+  p {
+    font-size: 14px;
+    padding: 5px 15px;
+    border-radius: 50px;
+    color: $darkBlue;
+    background: #AFD3E2;
+    
+    span {
+      font-weight: 700;
+    }
+  }
+}
+
 .active-button {
   background: $darkBlue !important;
   color: #fff !important;
+
+  transition: $btnTransition;
+}
+
+.shake {
+  animation: shake 0.5s;
+
+  animation-iteration-count: 1;
+  
+  @keyframes shake {
+    0% { transform: translateX(0) }
+    25% { transform: translateX(5px) }
+    50% { transform: translateX(-5px) }
+    75% { transform: translateX(5px) }
+    100% { transform: translateX(0) }
+  }
 }

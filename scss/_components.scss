@@ -9,6 +9,12 @@
   background: #fff;
   margin: 10px;
   padding: 10px;
+
+  transition: $btnTransition;
+
+  &:hover {
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  }
   
   .card-content {
     h6 {
@@ -59,24 +65,29 @@
     background: #fff;
     color: $darkBlue;
     box-shadow: rgba(0, 0, 0, 0.1) -4px 9px 25px -6px;
+
+    transition: $btnTransition;
+
+    &:hover {
+      background: rgba(175, 211, 226, 0.3);
+    }
   }
 }
 
-.counter {
+.options {
   display: flex;
   align-items: center;
+  gap: 10px;
   margin: 0 10px 20px;
-  
-  p {
-    font-size: 14px;
-    padding: 5px 15px;
-    border-radius: 50px;
-    color: $darkBlue;
-    background: #AFD3E2;
-    
-    span {
-      font-weight: 700;
-    }
+
+  .counter {
+    @include tag;
+    order: 2;
+  }
+
+  .page-display {
+    @include tag;
+    order: 1;
   }
 }
 

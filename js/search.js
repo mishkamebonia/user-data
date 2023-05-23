@@ -9,12 +9,21 @@ const searchBarCleanButton = document.querySelector('#clean-search-btn')
 
 let userArr = []
 
+function keyPress() {
+  search.addEventListener('keypress', (event) => {
+    if (event.key === 'Enter') {
+      event.preventDefault();
+      button.click();
+    }
+  })
+}
+
 export function searchEngine() {
   button.addEventListener('click', () => {
     const searchFilterValue = search.value.toLowerCase()
-
+    
     userArr = []
-
+    
     for (let i = 0; i < DATA.length; i++) {
           const userFirstName = DATA[i].first_name.toLowerCase()
           const userLastName = DATA[i].last_name.toLowerCase()
@@ -30,8 +39,17 @@ export function searchEngine() {
             }
           }
         } 
-        searchBoxFilter()
+        if (search.value != 0) {
+          searchBoxFilter()
+        } else {
+          button.classList.add('shake')
+
+          setTimeout( () => {
+            button.classList.remove('shake')
+          }, 500 )
+        }
       })
+      keyPress()
       cleanSearch()
 }
 
@@ -77,6 +95,6 @@ function cleanSearch() {
       }, 400 )
 
     search.value = ''
-    displayCard(DATA)
+    search.focus()
   })
 }
