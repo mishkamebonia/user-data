@@ -21,13 +21,24 @@
       <button id="search-button">search</button>
     </div>
     <div class="options">
-      <div class="counter" id="counter">
-        <p><span id="data-counter"></span> results found in <span id="data-counter-time"></span>ms</p>
+      <div class="left">
+        <div class="page-display">
+          <p>page <span id="current-page"></span></p>
+        </div>
+        <div class="counter" id="counter">
+          <p><span id="data-counter"></span> results found in <span id="data-counter-time"></span>ms</p>
+        </div>
       </div>
-      <div class="page-display">
-        <p>page <span id="current-page">error</span></p>
+      <div class="right">
+        <div class="all-pages">
+          <button id="filter-pages">all</button>
+        </div>
+        <div class="filters">
+          <button id="filters-dropdown">filters <i class="fa-solid fa-chevron-down"></i></button>
+        </div>
       </div>
     </div>
+    <div id="filters-wrapper" style='display: none'></div>
     <div id="wrapper"></div>
     <div id="pagitation-buttons"></div>
   </main>

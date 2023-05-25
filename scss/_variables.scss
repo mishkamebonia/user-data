@@ -15,24 +15,41 @@ $btnTransition: all .2s ease;
 }
 
 @mixin tag {
-  p {
+  p, button {
     font-size: 14px;
     padding: 5px 15px;
     border-radius: 50px;
     color: $darkBlue;
     background: #AFD3E2;
+    outline: none;
+    border: 0;
     
     span {
       font-weight: 700;
     }
+
+    i {
+      font-size: 12px;
+    }
   }
+}
+@mixin checkboxTag {
+  font-size: 14px;
+  padding: 5px 15px;
+  border-radius: 50px;
+  background: #AFD3E2;
+  color: $darkBlue;
+  outline: none;
+  border: 0;
+  cursor: pointer;
+  user-select: none;
 }
 
 .active-button {
   background: $darkBlue !important;
   color: #fff !important;
 
-  transition: $btnTransition;
+  // transition: $btnTransition;
 }
 
 .shake {
@@ -47,4 +64,8 @@ $btnTransition: all .2s ease;
     75% { transform: translateX(5px) }
     100% { transform: translateX(0) }
   }
+}
+
+.flex-visible {
+  display: flex !important;
 }

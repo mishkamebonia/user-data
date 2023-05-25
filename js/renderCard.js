@@ -1,3 +1,5 @@
+import {errorFunction} from './error.js'
+
 const wrapper = document.querySelector('#wrapper')
 const pagitationButtonsWrapper = document.querySelector('#pagitation-buttons')
 
@@ -125,12 +127,16 @@ export function displayCard(dataType) {
     return `
             <button class='card' id='${e.id}'>
               <div class='card-content'>
-              <h6>id ${e.id}</h6>
                 <div class='user-name'>
                   <img src='${e.avatar}' alt='user-image'>
                   <h4 class='header'><span class="option-color">${e.first_name} ${e.last_name}</span></h4>
                 </div>
-                <div class='more-info' style="display: none;">
+                <div class='user-options'>
+                  <p class='gender'>gender: <span class="option-color">${e.gender}</span></p>
+                  <p class='vehicle'>vehicle: <span class="option-color">${e.vehicle}</span></p>
+                  <p class='country'>country: <span class="option-color">${e.country}</span></p>
+                </div>
+                <div class='more-info' style='display: none'>
                   <p class='email'>email: <span class="option-color">${e.email}</span></p>
                   <p class='gender'>gender: <span class="option-color">${e.gender}</span></p>
                   <p class='country'>country: <span class="option-color">${e.country}</span></p>
@@ -150,21 +156,9 @@ export function displayCard(dataType) {
 
   currentPage = 1
 
-  // window.window.scrollTo(0,0)
-
   dataCounter.textContent = dataType.length
   const finishTime = performance.now();
   dataCounterTime.textContent = Math.round(finishTime - startTime)
 
   errorFunction(dataType)
-}
-
-function errorFunction(data) {
-  if (data.length === 0) {
-    wrapper.innerHTML =
-                        `<div id='not-found'>
-                          <img src='./images/not-found.png'>
-                          <p>data not found</p>
-                        </div>`
-  }
 }

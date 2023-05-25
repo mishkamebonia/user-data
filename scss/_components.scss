@@ -8,7 +8,7 @@
   border-radius: 8px;
   background: #fff;
   margin: 10px;
-  padding: 10px;
+  padding: 10px 25px 10px 10px;
 
   transition: $btnTransition;
 
@@ -17,21 +17,30 @@
   }
   
   .card-content {
-    h6 {
-      text-align: right;
-      font-size: 10px;
-    }
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
 
   .user-name {
     display: flex;
     align-items: center;
-    margin: 20px 0 32px;
+    margin: 35px 0;
+
+    img {
+      margin-bottom: 10px;
+    }
 
     h4 {
       font-size: 16px;
       margin-left: 15px;
     }
+  }
+
+  .user-options {
+    display: flex;
+    align-items: center;
+    gap: 30px;
   }
 
   .more-info {
@@ -76,19 +85,65 @@
 
 .options {
   display: flex;
+  justify-content: space-between;
   align-items: center;
   gap: 10px;
   margin: 0 10px 20px;
 
-  .counter {
-    @include tag;
-    order: 2;
+  .left {
+    display: flex;
+    gap: 10px;
+
+    .counter {
+      @include tag;
+    }
+  
+    .page-display {
+      @include tag;
+    }
   }
 
-  .page-display {
-    @include tag;
-    order: 1;
+  .right {
+    display: flex;
+    gap: 10px;
+
+    .all-pages {
+      @include tag;
+    }
+
+    .filters {
+      @include tag;
+    }
   }
+}
+
+#filters-wrapper {
+  margin: 0 10px 20px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  // display: none;
+
+  .checkbox-tag-card {
+
+    .checkbox-filter {
+      @include checkboxTag;
+    }
+    input {
+      display: none;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+
+      &:checked + label {
+        background: #146C94;
+        color: #fff;
+      }
+    }
+  }
+  
 }
 
 #not-found {
@@ -97,7 +152,7 @@
   justify-content: center;
   margin: 0 auto;
   width: 300px;
-  height: calc(100vh - 200px);
+  height: calc(100vh - 300px);
 
   img {
     width: 200px;

@@ -1,6 +1,6 @@
 import DATA from '../storage.json' assert { type: 'json' }
 
-import {displayCard} from './pagitation.js'
+import {displayCard} from './renderCard.js'
 
 const search = document.querySelector('#search')
 const button = document.querySelector('#search-button')
