@@ -67,7 +67,7 @@ function pagitationButtons(pages, data) {
       firstButton.disabled = false
     } 
     else if (currentPage = 1) {
-      window.window.scrollTo(0,0)
+      window.window.scrollTo(0,0) // ! bug
       firstButton.style.opacity = .5
       firstButton.disabled = true
     }

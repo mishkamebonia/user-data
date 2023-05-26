@@ -1,6 +1,17 @@
+#filter-pages {
+  background: #146C94;
+  color: #fff;
+  cursor: default;
+}
+
 .active-button {
   background: #146C94 !important;
   color: #fff !important;
+}
+
+.default-button {
+  background: #AFD3E2 !important;
+  color: #146C94 !important;
 }
 
 .shake {
@@ -25,8 +36,8 @@
   }
 }
 
-.flex-visible {
-  display: flex !important;
+.visible {
+  display: block !important;
 }
 
 #wrapper {
@@ -110,6 +121,9 @@
   display: flex;
   gap: 10px;
 }
+.options .left .counter {
+  cursor: default;
+}
 .options .left .counter p, .options .left .counter button {
   font-size: 14px;
   padding: 5px 15px;
@@ -124,6 +138,9 @@
 }
 .options .left .counter p i, .options .left .counter button i {
   font-size: 12px;
+}
+.options .left .page-display {
+  cursor: default;
 }
 .options .left .page-display p, .options .left .page-display button {
   font-size: 14px;
@@ -175,14 +192,19 @@
   font-size: 12px;
 }
 
-#filters-wrapper {
+#filters-wrapper h3 {
+  margin: 0 10px 15px;
+  font-size: 16px;
+  color: #146C94;
+}
+#filters-wrapper .gender-list {
   margin: 0 10px 20px;
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 15px 10px;
 }
-#filters-wrapper .checkbox-tag-card .checkbox-filter {
+#filters-wrapper .gender-list .checkbox-tag-card .checkbox-filter {
   font-size: 14px;
   padding: 5px 15px;
   border-radius: 50px;
@@ -195,16 +217,12 @@
      -moz-user-select: none;
           user-select: none;
 }
-#filters-wrapper .checkbox-tag-card input {
+#filters-wrapper .gender-list .checkbox-tag-card input {
   display: none;
   width: 100%;
   height: 100%;
   left: 0;
   top: 0;
-}
-#filters-wrapper .checkbox-tag-card input:checked + label {
-  background: #146C94;
-  color: #fff;
 }
 
 #not-found {
@@ -213,7 +231,7 @@
   justify-content: center;
   margin: 0 auto;
   width: 300px;
-  height: calc(100vh - 300px);
+  height: calc(100vh - 200px);
 }
 #not-found img {
   width: 200px;

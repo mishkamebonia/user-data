@@ -13,7 +13,7 @@
   <main>
     <div class="search-box">
       <div class="search-bar">
-        <input type="search" class="search" id="search" placeholder="text in here">
+        <input type="search" class="search" id="search" placeholder="search user">
         <button id="clean-search-btn" style="display: none;">
           <i class="fa-solid fa-xmark"></i>
         </button>
@@ -36,9 +36,19 @@
         <div class="filters">
           <button id="filters-dropdown">filters <i class="fa-solid fa-chevron-down"></i></button>
         </div>
+        <div class="filters">
+          <button id="filter-reset">clear all filters</i></button>
+        </div>
       </div>
     </div>
-    <div id="filters-wrapper" style='display: none'></div>
+    <div id="filters-wrapper" style="display: none;">
+      <h3>gender</h3>
+      <div id="gender-filter-list" class="gender-list"></div>
+      <h3>country</h3>
+      <div id="country-filter-list" class="gender-list"></div>
+      <h3>vehicle</h3>
+      <div id="vehicle-filter-list" class="gender-list"></div>
+    </div>
     <div id="wrapper"></div>
     <div id="pagitation-buttons"></div>
   </main>
