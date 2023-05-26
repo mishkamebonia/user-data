@@ -7,7 +7,10 @@ import {removeActive, filteredDataArr} from './filters.js'
 const search = document.querySelector('#search')
 const button = document.querySelector('#search-button')
 
+const filterWrapper = document.querySelector('#filters-wrapper')
 const searchBarCleanButton = document.querySelector('#clean-search-btn')
+const filterDropdownBtn = document.querySelector('#filters-dropdown')
+const icon = document.querySelector('#filters-dropdown i')
 
 let userArr = []
 
@@ -42,6 +45,9 @@ export function searchEngine() {
           }
         } 
         if (search.value != 0) {
+          filterWrapper.classList.remove('visible')
+          filterDropdownBtn.classList.remove('active-button')
+          icon.classList.remove('fa-angle-up')
           searchBoxFilter()
           filteredDataArr.length = 0
           removeActive()
