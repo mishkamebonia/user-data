@@ -107,10 +107,19 @@ function filter() {
 
 export function filterReset(data) {
   filterResetBtn.addEventListener('click', () => {
-    filteredDataArr = []
-    displayCard(data)
 
-    removeActive()
+    if (filteredDataArr.length >= 1) {
+      filteredDataArr = []
+      displayCard(data)
+  
+      removeActive()
+    } else {
+      filterResetBtn.classList.add('shake')
+
+      setTimeout( () => {
+        filterResetBtn.classList.remove('shake')
+      }, 500 )
+    }
   })
 }
 
