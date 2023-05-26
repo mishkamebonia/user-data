@@ -109,10 +109,6 @@
     display: flex;
     gap: 10px;
 
-    .all-pages {
-      @include tag;
-    }
-
     .filters {
       @include tag;
     }

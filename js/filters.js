@@ -2,7 +2,8 @@ import DATA from '../storage.json' assert { type: 'json' }
 
 import {displayCard} from './renderCard.js'
 
-const filterPages = document.querySelector('#filter-pages')
+const search = document.querySelector('#search')
+
 const filterDropdownBtn = document.querySelector('#filters-dropdown')
 const filterResetBtn = document.querySelector('#filter-reset')
 
@@ -11,12 +12,12 @@ const filterWrapper = document.querySelector('#filters-wrapper')
 const genderFilterList = document.querySelector('#gender-filter-list')
 const countryFilterList = document.querySelector('#country-filter-list')
 const vehicleFilterList = document.querySelector('#vehicle-filter-list')
+
 let filterListArr = [genderFilterList, countryFilterList, vehicleFilterList]
 
 let filterOptionsArr = ['gender', 'country', 'vehicle']
 
-let filteredDataArr = []
-
+export let filteredDataArr = []
 
 function filterDropdown() {
   filterDropdownBtn.addEventListener('click', () => {
@@ -67,7 +68,6 @@ function checkboxListener() {
         filteredDataArr.push(value)
         activeFilter[Arrindex].classList.add('active-button')
         activeFilter[Arrindex].classList.remove('default-button')
-        console.log(filteredDataArr)
       } else {
         const index = filteredDataArr.indexOf(value)
         
@@ -76,20 +76,11 @@ function checkboxListener() {
           activeFilter[Arrindex].classList.remove('active-button')
           activeFilter[Arrindex].classList.add('default-button')
         }
-        console.log(filteredDataArr)
       }
       
       filter()
 
-      if (filteredDataArr.length >= 1) {
-        console.log(filteredDataArr.length)
-        filterPages.classList.remove('active-button')
-        filterPages.classList.add('default-button')
-      }
-      else {
-        filterPages.classList.remove('default-button')
-        filterPages.classList.add('active-button')
-      }
+      search.value = ''
     })
   })
 }
@@ -102,31 +93,28 @@ function filter() {
 
     if (filteredDataArr.length === 0) {
       return true;
-    } else if (filteredDataArr.length === 1) {
+    } else if (filteredDataArr.length >= 1) {
       return genderMatch || countryMatch || vehicleMatch;
-    } else if (filteredDataArr.length === 3) {
-      return genderMatch && countryMatch && vehicleMatch;
-    } else {
-      return (genderMatch && countryMatch) || (genderMatch && vehicleMatch) || (countryMatch && vehicleMatch);
     }
   });
 
-  displayCard(filteredData);
+  displayCard(filteredData); // ! bug
+
+  if (!filteredData) {
+    window.window.screenTop(0, 0)
+  }
 }
 
-function filterReset() {
+export function filterReset(data) {
   filterResetBtn.addEventListener('click', () => {
     filteredDataArr = []
-    displayCard(DATA)
-
-    filterPages.classList.remove('default-button')
-    filterPages.classList.add('active-button')
+    displayCard(data)
 
     removeActive()
   })
 }
 
-function removeActive() {
+export function removeActive() {
   const activeFilter = document.querySelectorAll('.checkbox-filter')
     const checkboxes = document.querySelectorAll('.checkbox-tag')
 
@@ -141,6 +129,6 @@ function removeActive() {
 
 export function filters() {
   filterDropdown()
-  filterReset()
+  filterReset(DATA)
   checkboxItem(DATA, filterOptionsArr)
 }

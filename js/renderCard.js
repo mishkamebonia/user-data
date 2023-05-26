@@ -1,3 +1,4 @@
+import {openModal} from './modal.js'
 import {errorFunction} from './error.js'
 
 const wrapper = document.querySelector('#wrapper')
@@ -55,6 +56,7 @@ function pagitationButtons(pages, data) {
     firstButton.value = 1
 
     firstButton.addEventListener('click', () => {
+      window.window.scrollTo(0,0)
       currentPage = firstButton.value
       displayCard(data)
     })
@@ -67,7 +69,6 @@ function pagitationButtons(pages, data) {
       firstButton.disabled = false
     } 
     else if (currentPage = 1) {
-      window.window.scrollTo(0,0) // ! bug
       firstButton.style.opacity = .5
       firstButton.disabled = true
     }
@@ -103,6 +104,7 @@ function pagitationButtons(pages, data) {
   }
 
   lastButton.addEventListener('click', () => {
+    window.window.scrollTo(0,0)
     currentPage = lastButton.value
     displayCard(data)
   })
@@ -110,8 +112,7 @@ function pagitationButtons(pages, data) {
   if (currentPage != pages) {
     lastButton.disabled = false
   } 
-  else if (currentPage = pages) {
-    window.window.scrollTo(0,0)
+  else if (currentPage == pages) {
     lastButton.style.opacity = .5
     lastButton.disabled = true
   }
@@ -151,14 +152,17 @@ export function displayCard(dataType) {
             </button>
     `
   }).join('')
+
   
   pagitationButtons(pagitationPages(dataType, rows), dataType) // buttons
-
+  
   currentPage = 1
+  
+  openModal(pagitationItems)
 
   dataCounter.textContent = dataType.length
   const finishTime = performance.now();
   dataCounterTime.textContent = Math.round(finishTime - startTime)
-
+  
   errorFunction(dataType)
 }

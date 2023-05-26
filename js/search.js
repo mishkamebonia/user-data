@@ -2,6 +2,8 @@ import DATA from '../storage.json' assert { type: 'json' }
 
 import {displayCard} from './renderCard.js'
 
+import {removeActive, filteredDataArr} from './filters.js'
+
 const search = document.querySelector('#search')
 const button = document.querySelector('#search-button')
 
@@ -33,7 +35,7 @@ export function searchEngine() {
             userArr.push(userFirstName)
           } else {
             const index = userArr.indexOf(userFirstName)
-
+            
             if (index > -1) {
               userArr.splice(index, 1)
             }
@@ -41,6 +43,8 @@ export function searchEngine() {
         } 
         if (search.value != 0) {
           searchBoxFilter()
+          filteredDataArr.length = 0
+          removeActive()
         } else {
           button.classList.add('shake')
 
@@ -49,6 +53,7 @@ export function searchEngine() {
           }, 500 )
         }
       })
+  
       keyPress()
       cleanSearch()
 }
@@ -96,5 +101,6 @@ function cleanSearch() {
 
     search.value = ''
     search.focus()
+    displayCard(DATA)
   })
 }
